@@ -119,7 +119,7 @@ final class AutoConfigureAdminClassesCompilerPass implements CompilerPassInterfa
     {
         if (!$annotation->label) {
             $inflector = new Inflector(new NoopWordInflector(), new NoopWordInflector());
-            $annotation->label = $inflector->capitalize(\str_replace('_', ' ', Inflector::tableize($name)));
+            $annotation->label = $inflector->capitalize(\str_replace('_', ' ', $inflector->tableize($name)));
         }
 
         if (!$annotation->labelCatalogue) {
