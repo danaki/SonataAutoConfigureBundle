@@ -117,7 +117,7 @@ final class AutoConfigureAdminClassesCompilerPass implements CompilerPassInterfa
     private function setDefaultValuesForAnnotation(AdminOptions $annotation, string $name, array $defaults): void
     {
         if (!$annotation->label) {
-            $annotation->label = Inflector::ucwords(\str_replace('_', ' ', Inflector::tableize($name)));
+            $annotation->label = Inflector::capitalize(\str_replace('_', ' ', Inflector::tableize($name)));
         }
 
         if (!$annotation->labelCatalogue) {
