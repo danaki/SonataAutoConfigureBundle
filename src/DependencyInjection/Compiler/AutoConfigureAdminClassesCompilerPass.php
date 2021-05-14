@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace KunicMarko\SonataAutoConfigureBundle\DependencyInjection\Compiler;
 
 use Doctrine\Common\Annotations\Reader;
-use Doctrine\Common\Inflector\Inflector;
+use Doctrine\Inflector\Inflector;
 use KunicMarko\SonataAutoConfigureBundle\Annotation\AdminOptions;
 use KunicMarko\SonataAutoConfigureBundle\Exception\EntityNotFound;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
