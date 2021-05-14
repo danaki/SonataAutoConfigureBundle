@@ -6,7 +6,7 @@ namespace KunicMarko\SonataAutoConfigureBundle\DependencyInjection\Compiler;
 
 use Doctrine\Common\Annotations\Reader;
 use Doctrine\Inflector\Inflector;
-use Doctrine\Inflector\WordInflector;
+use Doctrine\Inflector\NoopWordInflector;
 use KunicMarko\SonataAutoConfigureBundle\Annotation\AdminOptions;
 use KunicMarko\SonataAutoConfigureBundle\Exception\EntityNotFound;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
@@ -118,7 +118,7 @@ final class AutoConfigureAdminClassesCompilerPass implements CompilerPassInterfa
     private function setDefaultValuesForAnnotation(AdminOptions $annotation, string $name, array $defaults): void
     {
         if (!$annotation->label) {
-            $inflector = new Inflector((WordInflector) null, (WordInflector) null);
+            $inflector = new Inflector(new NoopWordInflector(), new NoopWordInflector());
             $annotation->label = $inflector->capitalize(\str_replace('_', ' ', Inflector::tableize($name)));
         }
 
