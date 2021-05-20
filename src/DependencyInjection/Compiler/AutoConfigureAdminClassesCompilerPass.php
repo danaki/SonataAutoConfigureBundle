@@ -108,8 +108,8 @@ final class AutoConfigureAdminClassesCompilerPass implements CompilerPassInterfa
             }
 
             if (\is_array($annotation->children)) {
-                foreach ($annotation->children as $childId) {
-                    $definition->addMethodCall('addChild', [new Reference($childId)]);
+                foreach ($annotation->children as $childId => $field) {
+                    $definition->addMethodCall('addChild', [new Reference($childId), $field]);
                 }
             }
         }
